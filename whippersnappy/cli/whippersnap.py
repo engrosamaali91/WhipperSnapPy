@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
-"""Executes the whippersnappy program in an interactive or non-interactive mode.
+"""
+Executes the whippersnappy program in an interactive or non-interactive mode.
 
 The non-interactive mode (the default) creates an image that contains four
 views of the surface, a color bar, and a configurable caption.
+
 The interactive mode (--interactive) opens a simple GUI with a controllable
 view of one of the hemispheres. In addition, the view through a separate
 configuration app which allows adjusting thresholds, etc. during runtime.
@@ -11,12 +13,12 @@ configuration app which allows adjusting thresholds, etc. during runtime.
 Usage:
     $ python3 whippersnap.py -lh $LH_OVERLAY_FILE -rh $RH_OVERLAY_FILE \
                              -sd $SURF_SUBJECT_DIR -o $OUTPUT_PATH
+                             
 (See help for full list of arguments.)
 
 @Author1    : Martin Reuter
 @Author2    : Ahmed Faisal Abdelrahman
 @Created    : 16.03.2022
-
 """
 
 import argparse
@@ -60,30 +62,33 @@ def show_window(
     specular=True,
 ):
     """
-    Starts an interactive window in which an overlay can be viewed.
+    Start an interactive window in which an overlay can be viewed.
 
     Parameters
     ----------
-    hemi: str
-        Hemisphere; one of: ['lh', 'rh']
-    overlaypath: str
-        Path to the overlay file for the specified hemi (FreeSurfer format)
-    sdir: str
-       Subject dir containing surf files
-    caption: str
-       Caption text to be placed on the image
-    invert: bool
-       Invert color (blue positive, red negative)
-    labelname: str
-       Label for masking, usually cortex.label
-    surfname: str
-       Surface to display values on, usually pial_semi_inflated from fsaverage
-    curvname: str
-       Curvature file for texture in non-colored regions (default curv)
+    hemi : str
+        Hemisphere; one of: ['lh', 'rh'].
+    overlaypath : str
+        Path to the overlay file for the specified hemi (FreeSurfer format).
+    sdir : str
+       Subject dir containing surf files.
+    caption : str
+       Caption text to be placed on the image.
+    invert : bool
+       Invert color (blue positive, red negative).
+    labelname : str
+       Label for masking, usually cortex.label.
+    surfname : str
+       Surface to display values on, usually pial_semi_inflated from fsaverage.
+    curvname : str
+       Curvature file for texture in non-colored regions (default curv).
+    specular : bool, optional
+       If True, enable specular.
 
     Returns
     -------
     None
+        This function does not return any value.
     """
     global current_fthresh_, current_fmax_, app_, app_window_, app_window_closed_
 
